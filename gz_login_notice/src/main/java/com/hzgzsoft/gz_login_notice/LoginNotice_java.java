@@ -25,15 +25,17 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class LoginNotice_java {
 
 
-    public final static String GET_NOTICE_INFO = "V.ashx?v=1";
+    public final static String GET_NOTICE_INFO = "Notice.ashx";
+
+    public static TextBannerView textbanner = null;
 
     public static void initNotice(Context context, LinearLayout linearLayout,
-                                  String retrofitHead, String webViewUrl) {
+                                  String retrofitHead, ShowWebView showWebView) {
 
         View view = LayoutInflater.from(context).inflate(R.layout.noticeview, null);
 
 
-        TextBannerView textbanner = view.findViewById(R.id.loginNotice_banner);
+        textbanner = view.findViewById(R.id.loginNotice_banner);
 
 
         linearLayout.addView(textbanner);
@@ -68,6 +70,9 @@ public class LoginNotice_java {
                 textbanner.setItemOnClickListener(new ITextBannerItemClickListener() {
                     @Override
                     public void onItemClick(String data, int position) {
+
+
+                        showWebView.onShowWebView(response.body().get(position).getId());
 //                        new DialogShowWebview(context, "", "http://slzyjc.lyj.zj.gov.cn/slzy/admin/NoticeShow.aspx?Id=" + response.body().get(position).getId(), 110).show();
                     }
                 });
@@ -81,7 +86,30 @@ public class LoginNotice_java {
             }
         });
 
+    }
 
+
+
+    public static void textbanner_stopViewAnimator(){
+        try {
+            //防止出现重影
+            if (textbanner != null) {
+                textbanner.stopViewAnimator();
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void textbanner_startViewAnimator(){
+        try {
+            //防止出现重影
+            if (textbanner != null) {
+                textbanner.startViewAnimator();
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
