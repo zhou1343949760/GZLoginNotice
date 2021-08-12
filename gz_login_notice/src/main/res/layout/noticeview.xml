@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.superluo.textbannerlibrary.TextBannerView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/loginNotice_banner"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginEnd="30dp"
+    android:layout_marginBottom="30dp"
+    android:background="@drawable/gzloginnotice_shape_login"
+    android:padding="5dp"
+    app:setTextColor="#ffff00"
+    app:setTextSize="18dp"
+    app:setInterval="5000"
+    android:visibility="invisible"
+    >
+
+
+
+</com.superluo.textbannerlibrary.TextBannerView>
