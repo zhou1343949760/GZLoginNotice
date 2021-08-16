@@ -64,7 +64,10 @@ public class LoginNotice_java {
                 }
                 ArrayList<String> list = new ArrayList<>();
                 for (int i = 0; i < response.body().size(); i++) {
-                    list.add(response.body().get(i).getTitle() + "\n" + response.body().get(i).getInformation());
+                    list.add(
+                            replaceDquo(response.body().get(i).getTitle()
+                                    + "\n" + response.body().get(i).getInformation())
+                    );
                 }
                 textbanner.setDatas(list);
                 textbanner.setItemOnClickListener(new ITextBannerItemClickListener() {
@@ -86,6 +89,16 @@ public class LoginNotice_java {
             }
         });
 
+    }
+
+    /**
+     * 替换特殊字符
+     * @param str
+     * @return
+     */
+    public static String replaceDquo(String str) {
+        String temp = str.replaceAll("&ldquo;","\"");
+        return temp.replaceAll("&rdquo;","\"");
     }
 
 

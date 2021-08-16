@@ -18,7 +18,8 @@ class MainActivity : AppCompatActivity() {
 
 
         LoginNotice_java.initNotice(this,linear_notice,
-        "http://192.168.2.9:90/Mobile/Online/notice/",
+//        "http://192.168.2.9:90/Mobile/Online/notice/",
+        "http://slzyjc.lyj.zj.gov.cn/slzy/ashx/",
             ShowWebView {
                 Toast.makeText(this, "  $it",Toast.LENGTH_SHORT).show()
             })
